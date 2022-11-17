@@ -12,27 +12,38 @@ body {
 }
 .box {
     background-color: salmon;
-    border: 1px solid black
 }
 
 .nav {
     grid-column: 2/4;
-    height: 62px;
+    height: 8vh;
+    background-color: #EAEAEA;
+    border-left: 1px solid #DADADA;
 }
 
 .sidebar {
     grid-row: 1/4;
+   
 }
 
 .main {
     grid-column: 2/4;
-    height: 501px;
+    height: 84vh;
+    background-image: url(../img/mine.jpg);
 }
 
 .footer {
     grid-column: 2/4;
-    height: 62px;
+    height: 8vh;
+    border-left: 1px solid #DADADA;
 }
+
+.side-name {
+    background-color: #EAEAEA;
+    height: 8vh;
+}
+
+
 
 /* SIDEBAR */
 .user-face {
@@ -50,6 +61,8 @@ body {
 
 .side-contacts {
     overflow-y: scroll;
+    height: 76vh;
+    background-color: #FFFFFF;
 }
 
 .input-group span {
@@ -69,3 +82,63 @@ body {
     box-shadow: none;
     border-color: lightgray;
 }
+
+.active {
+    background-color: #EAEAEA;
+}
+
+.bell {
+    background-color: white;
+    padding: .5rem .5rem;
+    border-radius: 50%;
+}
+
+.bell .fa-bell-slash {
+    color: #8EDAFC;
+}
+
+.container-bell {
+    background-color: #8EDAFC;
+    height: 10vh;
+}
+
+.form-control {
+    border: none;
+}
+
+.input-group-text {
+    border: none;
+
+}
+
+.container-search {
+    background-color: #FAFAFA;
+    height: 6vh;
+}
+
+.rounded {
+    border-radius: 0.1px !important;
+}
+
+.container-contacts {
+    border-top: 1px solid #E9EBEB;
+}
+
+/* FOOTER */
+.footer {
+    padding: 0.5rem 2rem;
+    background-color: #F3EEEA;
+}
+
+.message-input {
+    width: 36rem;
+    height: 2.2rem;
+    border-radius: 5px;
+    border: none;
+}
+
+.message-input:focus {
+    box-shadow: none !important;
+    border: 1px solid #F3EEEA;
+}
+
