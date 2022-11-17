@@ -1,5 +1,7 @@
 body {
     height: 100vh;
+    font-size: 0.8rem;
+    background: linear-gradient(to bottom, #009688 15%, #D7DBD7 15% 100%);
 }
 
 .container-grid {
@@ -34,5 +36,36 @@ body {
 
 /* SIDEBAR */
 .user-face {
-    width: 45px;
+    width: 35px;
+    height: 35px;
+}
+.container-text-sidebar {
+    display: flex;
+    justify-content: space-between !important;
+}
+
+.last-message {
+    font-size: 0.6rem;
+}
+
+.side-contacts {
+    overflow-y: scroll;
+}
+
+.input-group span {
+    height: 1.5rem;
+    background-color: white;
+    border-right: none;
+    cursor: pointer;
+}
+
+.input-group input {
+    height: 1.5rem;
+    border-left: none;
+
+}
+
+.input-group input:focus {
+    box-shadow: none;
+    border-color: lightgray;
 }

@@ -1,7 +1,6 @@
 const app = new Vue({
     el: '#app',
     data: {
-        inviato: 'Ultimo messaggio inviato',
         contacts: [
             {
             name: 'Michele',
