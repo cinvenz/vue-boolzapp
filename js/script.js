@@ -168,8 +168,8 @@ const app = new Vue({
 		],
 
         arrImage: '',
-        
-        newContainer: ''
+        newContainer: '',
+        newMessage: '',
     },
 
     methods: {
@@ -180,12 +180,39 @@ const app = new Vue({
         updateArrtImage(index) {
             const avatar = this.contacts[index].avatar;
             this.arrImage = `img/avatar${avatar}.jpg`;
-        }
+        },
+
+        sendMessage() {
+            this.newContainer.messages.push({ 
+                date: this.getNow(),
+                message: this.newMessage,
+                status: 'sent'
+            });
+
+            this.newMessage = '';
+            this.receiveMessage();
+        },
+
+        receiveMessage() {
+            setTimeout(function () {
+                app.newContainer.messages.push({
+                    date: app.getNow(),
+                    message: 'Ok',
+                    status: 'received'
+                    });
+            }, 1000);
+        },
+
+        getNow() {
+            return luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
+        },
     },
 
     mounted() {
         this.newContainer = this.contacts[0];
         const firstContact = this.newContainer;
         this.arrImage = `img/avatar${firstContact.avatar}.jpg`;
-    }
+    },
+   
+    
 });

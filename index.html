@@ -36,6 +36,8 @@
 		}
 	</style>
 
+<!-- luxon library for formatting dates -->
+<script src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js" defer></script>
 	
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js" defer></script>
 <script src="js/script.js" defer></script>
@@ -132,7 +134,7 @@
       
 			<div class="box footer d-flex align-items-center justify-content-between">
 				<i class="far fa-smile fs-5"></i>
-				<input class="message-input" type="text" placeholder="Scrivi un messaggio">
+				<input class="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
 				<i class="fas fa-microphone fs-5"></i>
 			</div>
 		</div>
