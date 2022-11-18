@@ -35,17 +35,21 @@
 			display: none;
 		}
 	</style>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js" defer></script>
+<script src="js/script.js" defer></script>
 </head>
 <body>
-    <div id="app" v-cloak>
+    <div id="root" v-cloak>
         <div class="container-grid container">
 			<!-- NAV -->
             <div class=" box nav d-flex justify-content-between p-2">
 				<div class="d-flex justify-content-start">
-					<img class="img-fluid rounded-circle user-face ms-2 me-3" src="img/avatar_1.jpg">
+					<img class="img-fluid rounded-circle user-face ms-2 me-3" :src="arrImage" alt="">
 					<div class="container-text-sidebar">
 						<div class="d-flex flex-column">
-							<span>Michele</span>
+							<span>{{ newContainer.name }}</span>
 							
 							<span class="last-message">Ultimo accesso oggi</span>
 						</div>
@@ -93,7 +97,7 @@
 				</div>
 				<!-- side-contact -->
 				<div class="side-contacts">
-					<div class="container-contacts d-flex justify-content-between p-2" v-for="(contact, i) in contacts" :key="i" >
+					<div class="container-contacts d-flex justify-content-between p-2" v-for="(contact, i) in contacts" :key="i" @click="selectContact(i), updateArrtImage(i)">
 						<div class="d-flex justify-content-start">
 							<img class="img-fluid rounded-circle user-face ms-2 me-3" :src="'img/avatar' + contact.avatar + '.jpg'" alt=""
 							>
@@ -111,29 +115,31 @@
 			</div>
 
 			<!-- MAIN -->
-            <div class="box main">
-				
-				<div class="messages">
-                    
+           
+				<div class="box main messages">
+                    <div 
+                    class="message" 
+                    v-for="message in newContainer.messages" 
+                    :class="{ sent : message.status === 'sent',
+                    received : message.status === 'received' }">
+                        <span class="messageText">{{ message.message }}</span>
+                        <span class="messageDate greyText">{{ message.date }}</span>
+                    </div>
                 </div>
-
-			</div>
+			
 
 			<!-- FOOTER -->
       
-				<div class="box footer d-flex align-items-center justify-content-between">
-                    <i class="far fa-smile fs-5"></i>
-                    <input class="message-input" type="text" placeholder="Scrivi un messaggio">
-                    <i class="fas fa-microphone fs-5"></i>
-                </div>
-			
-			
-        </div>
+			<div class="box footer d-flex align-items-center justify-content-between">
+				<i class="far fa-smile fs-5"></i>
+				<input class="message-input" type="text" placeholder="Scrivi un messaggio">
+				<i class="fas fa-microphone fs-5"></i>
+			</div>
+		</div>
     </div>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
-	<script src="js/script.js"></script>
+   
 </body>
 </html>

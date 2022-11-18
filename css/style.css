@@ -2,6 +2,7 @@ body {
     height: 100vh;
     font-size: 0.8rem;
     background: linear-gradient(to bottom, #009688 15%, #D7DBD7 15% 100%);
+    padding-top: 1rem;
 }
 
 .container-grid {
@@ -28,8 +29,11 @@ body {
 
 .main {
     grid-column: 2/4;
-    height: 84vh;
+    height: 80vh;
     background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 .footer {
@@ -61,8 +65,9 @@ body {
 
 .side-contacts {
     overflow-y: scroll;
-    height: 76vh;
+    height: 73vh;
     background-color: #FFFFFF;
+    cursor: pointer;
 }
 
 .input-group span {
@@ -99,7 +104,7 @@ body {
 
 .container-bell {
     background-color: #8EDAFC;
-    height: 10vh;
+    height: 9vh;
 }
 
 .form-control {
@@ -142,3 +147,34 @@ body {
     border: 1px solid #F3EEEA;
 }
 
+/* MAIN */
+.message {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    position: relative;
+    min-width: 300px;
+}
+
+.message.sent {
+    align-self: flex-end;
+    background-color: #d5f9ba;
+    margin-right: 50px;
+}
+
+.message.received {
+    align-self: flex-start;
+    background-color: white;
+    margin-left: 50px;
+}
+
+.messageDate {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    margin-top: 5px;
+    font-size: 15px;
+    white-space: nowrap;
+}
