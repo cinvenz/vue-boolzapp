@@ -185,7 +185,8 @@ const app = new Vue({
         },
 
         sendMessage() {
-            this.newContainer.messages.push({ 
+				
+				this.newContainer.messages.push({ 
                 date: this.getNow(),
                 message: this.newMessage,
                 status: 'sent'

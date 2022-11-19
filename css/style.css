@@ -148,8 +148,9 @@ i {
 }
 
 .message-input:focus {
-    box-shadow: none !important;
-    border: 1px solid #F3EEEA;
+    box-shadow: none;
+    border-color: lightgray;
+    border: none;
 }
 
 /* MAIN */
@@ -235,4 +236,12 @@ i {
     position: absolute;
     right: 33px;
     display: none;
+}
+
+.disblock {
+    display: block;
+}
+
+.disnone {
+    z-index: -2;
 }

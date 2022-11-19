@@ -144,8 +144,8 @@
 			<div class="box footer d-flex align-items-center justify-content-between">
 				<i class="far fa-smile fs-5"></i>
 				<input class="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
-				<i class="fas fa-microphone fs-5"></i>
-				<i class="fa-solid fa-location-arrow fs-4"></i>
+				<i class="fas fa-microphone fs-5" :class="{disnone: newMessage != ''}"></i>
+				<i class="fa-solid fa-location-arrow fs-4" :class="{disblock: newMessage != ''}"></i>
 			</div>
 		</div>
     </div>
