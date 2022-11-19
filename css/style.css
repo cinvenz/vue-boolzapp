@@ -135,23 +135,14 @@ i {
     border-top: 1px solid #E9EBEB;
 }
 
+.container-contacts:hover {
+    background-color: lightgrey;
+}
+
 /* FOOTER */
 .footer {
     padding: 0.5rem 2rem;
     background-color: #F3EEEA;
-}
-
-.message-input {
-    width: 36rem;
-    height: 2.2rem;
-    border-radius: 5px;
-    border: none;
-}
-
-.message-input:focus {
-    box-shadow: none;
-    border-color: lightgray;
-    border: none;
 }
 
 /* MAIN */
@@ -245,4 +236,9 @@ i {
 
 .disnone {
     z-index: -2;
+}
+
+.footer .container-search {
+    width: 36rem;
+    border-radius: 10px;
 }

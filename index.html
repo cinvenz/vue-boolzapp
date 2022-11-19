@@ -53,7 +53,7 @@
 						<div class="d-flex flex-column">
 							<span class="fw-bold">{{ newContainer.name }}</span>
 							
-							<span class="last-message">Ultimo accesso oggi</span>
+							<span class="last-message text-black-50">Ultimo accesso oggi alle 12:00</span>
 						</div>
 					</div>	
 				</div>
@@ -107,11 +107,11 @@
 								<div class="d-flex flex-column">
 									<span class="fw-bold">{{contact.name}}</span>
 									
-									<span class="last-message">{{ contact.messages[contact.messages.length - 1].message }}</span>
+									<span class="last-message text-black-50">{{ contact.messages[contact.messages.length - 1].message }}</span>
 								</div>
 							</div>	
 						</div>
-						<span class="side-ora">12:00</span>
+						<span class="side-ora text-black-50">12:00</span>
 					</div>
 				</div>
 			</div>
@@ -126,7 +126,7 @@
                     :class="{ sent : message.status === 'sent',
                     received : message.status === 'received' }" >
                         <span class="messageText">{{ message.message }}</span>
-                        <span class="messageDate greyText">{{ message.date }}</span>
+                        <span class="messageDate greyText text-black-50">{{ message.date }}</span>
 
 						
                         <i class="fas fa-chevron-down dropdown-arrow text-grey" @click="toggleDropdown(index)"></i>
@@ -143,7 +143,11 @@
       
 			<div class="box footer d-flex align-items-center justify-content-between">
 				<i class="far fa-smile fs-5"></i>
-				<input class="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
+				<!-- <input class="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage"> -->
+				<div class="container-search input-group rounded p-2">
+				 	<input type="search" class="form-control rounded-end" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
+				</div>
+
 				<i class="fas fa-microphone fs-5" :class="{disnone: newMessage != ''}"></i>
 				<i class="fa-solid fa-location-arrow fs-4" :class="{disblock: newMessage != ''}" @click="sendMessage"></i>
 			</div>
