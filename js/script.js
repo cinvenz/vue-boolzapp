@@ -170,6 +170,8 @@ const app = new Vue({
         arrImage: '',
         newContainer: '',
         newMessage: '',
+		search: '',
+		contactFilter: ''
     },
 
     methods: {
@@ -190,11 +192,8 @@ const app = new Vue({
             });
 
             this.newMessage = '';
-            this.receiveMessage();
-        },
 
-        receiveMessage() {
-            setTimeout(function () {
+			setTimeout(function () {
                 app.newContainer.messages.push({
                     date: app.getNow(),
                     message: 'Ok',
@@ -203,15 +202,33 @@ const app = new Vue({
             }, 1000);
         },
 
+		searchContact() {
+            this.contactFilter = this.contacts.filter(contact => {
+                return contact.name.toLowerCase().includes(this.search.toLowerCase())
+            });
+        },
+
         getNow() {
             return luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
         },
+
+		toggleDropdown(index) {
+            const elDropdowns = document.querySelectorAll(".dropdown-menu");
+
+            if (elDropdowns[index].style.display === '') {
+                elDropdowns[index].style.display = "flex";
+            } else if (elDropdowns[index].style.display === "flex") {
+                elDropdowns[index].style.display = '';
+            }
+        }
     },
 
-    mounted() {
+    created() {
         this.newContainer = this.contacts[0];
         const firstContact = this.newContainer;
         this.arrImage = `img/avatar${firstContact.avatar}.jpg`;
+
+		this.contactFilter = this.contacts;
     },
    
     

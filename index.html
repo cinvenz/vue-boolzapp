@@ -48,10 +48,10 @@
 			<!-- NAV -->
             <div class=" box nav d-flex justify-content-between p-2">
 				<div class="d-flex justify-content-start">
-					<img class="img-fluid rounded-circle user-face ms-2 me-3" :src="arrImage" alt="">
+					<img class="img-fluid rounded-circle user-face ms-2 me-3 " :src="arrImage" alt="">
 					<div class="container-text-sidebar">
 						<div class="d-flex flex-column">
-							<span>{{ newContainer.name }}</span>
+							<span class="fw-bold">{{ newContainer.name }}</span>
 							
 							<span class="last-message">Ultimo accesso oggi</span>
 						</div>
@@ -95,11 +95,11 @@
 					<span class="input-group-text  rounded-start" id="search-addon">
 						<i class="fas fa-search"></i>
 					</span>
-					<input type="search" class="form-control rounded-end" placeholder="Cerca o inizia una nuova chat" aria-label="Search" aria-describedby="search-addon" />
+					<input type="search" class="form-control rounded-end" placeholder="Cerca o inizia una nuova chat" aria-label="Search" aria-describedby="search-addon" v-model="search" @keyup.enter="searchContact">
 				</div>
 				<!-- side-contact -->
 				<div class="side-contacts">
-					<div class="container-contacts d-flex justify-content-between p-2" v-for="(contact, i) in contacts" :key="i" @click="selectContact(i), updateArrtImage(i)">
+					<div class="container-contacts d-flex justify-content-between p-2" v-for="(contact, i) in contactFilter" :key="i" @click="selectContact(i), updateArrtImage(i)">
 						<div class="d-flex justify-content-start">
 							<img class="img-fluid rounded-circle user-face ms-2 me-3" :src="'img/avatar' + contact.avatar + '.jpg'" alt=""
 							>
@@ -121,11 +121,20 @@
 				<div class="box main messages">
                     <div 
                     class="message" 
-                    v-for="message in newContainer.messages" 
+                    v-for="(message, index) in newContainer.messages" 
+					:key="index"
                     :class="{ sent : message.status === 'sent',
-                    received : message.status === 'received' }">
+                    received : message.status === 'received' }" >
                         <span class="messageText">{{ message.message }}</span>
                         <span class="messageDate greyText">{{ message.date }}</span>
+
+						
+                        <i class="fas fa-chevron-down dropdown-arrow text-grey" @click="toggleDropdown(index)"></i>
+
+                        <div class="dropdown-menu bg-white">
+                            <span class="message-info">Message info</span>
+                            <span class="delete-message" @click="deleteMessage(index)">Delete message</span>
+                        </div>
                     </div>
                 </div>
 			
