@@ -145,7 +145,7 @@
 				<i class="far fa-smile fs-5"></i>
 				<input class="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
 				<i class="fas fa-microphone fs-5" :class="{disnone: newMessage != ''}"></i>
-				<i class="fa-solid fa-location-arrow fs-4" :class="{disblock: newMessage != ''}"></i>
+				<i class="fa-solid fa-location-arrow fs-4" :class="{disblock: newMessage != ''}" @click="sendMessage"></i>
 			</div>
 		</div>
     </div>
