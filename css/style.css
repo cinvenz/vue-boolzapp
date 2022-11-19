@@ -44,6 +44,7 @@ i {
     grid-column: 2/4;
     height: 8vh;
     border-left: 1px solid #DADADA;
+    position: relative;
 }
 
 .side-name {
@@ -220,4 +221,18 @@ i {
 
 .delete-message:hover {
     background-color: #eaeaea;
+}
+
+/* FOOTER */ 
+
+.fa-location-arrow {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+
+    position: absolute;
+    right: 33px;
+    display: none;
 }

@@ -220,7 +220,12 @@ const app = new Vue({
             } else if (elDropdowns[index].style.display === "flex") {
                 elDropdowns[index].style.display = '';
             }
-        }
+        },
+
+		deleteMessage(index) {
+			this.newContainer.messages.splice(index, 1)
+			this.toggleDropdown(index);
+		},
     },
 
     created() {
