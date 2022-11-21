@@ -194,9 +194,9 @@ const app = new Vue({
 
             this.newMessage = '';
 
-			setTimeout(function () {
-                app.newContainer.messages.push({
-                    date: app.getNow(),
+			setTimeout(() => {
+                this.newContainer.messages.push({
+                    date: this.getNow(),
                     message: 'Ok',
                     status: 'received'
                     });
