@@ -95,7 +95,7 @@
 					<span class="input-group-text  rounded-start" id="search-addon">
 						<i class="fas fa-search" @click="searchContact"></i>
 					</span>
-					<input type="search" class="form-control rounded-end" placeholder="Cerca o inizia una nuova chat" aria-label="Search" aria-describedby="search-addon" v-model="search" @keyup.enter="searchContact">
+					<input type="search" class="form-control rounded-end" placeholder="Cerca o inizia una nuova chat" aria-label="Search" aria-describedby="search-addon" v-model="search" @keyup="searchContact">
 				</div>
 				<!-- side-contact -->
 				<div class="side-contacts">
@@ -107,7 +107,7 @@
 								<div class="d-flex flex-column">
 									<span class="fw-bold">{{contact.name}}</span>
 									
-									<span class="last-message text-black-50">{{ contact.messages[contact.messages.length - 1].message }}</span>
+									<span class="last-message text-black-50">{{ contact.messages.length ? contact.messages[contact.messages.length - 1].message : 'non ci sono messaggi' }}</span>
 								</div>
 							</div>	
 						</div>
