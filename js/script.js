@@ -176,7 +176,7 @@ const app = new Vue({
 
     methods: {
         selectContact(index) {
-            this.newContainer = this.contacts[index];
+			this.newContainer = this.contacts[index];
         },
 
         updateArrtImage(index) {

@@ -201,7 +201,11 @@ i {
     box-shadow: 2px 2px 10px grey;
 }
 
-.message-info,
+.message-info {
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 10px 20px;
+}
 .delete-message {
     white-space: nowrap;
     cursor: pointer;
