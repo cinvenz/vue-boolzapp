@@ -176,11 +176,11 @@ const app = new Vue({
 
     methods: {
         selectContact(index) {
-			this.newContainer = this.contacts[index];
+			this.newContainer = this.contactFilter[index];
         },
 
         updateArrtImage(index) {
-            const avatar = this.contacts[index].avatar;
+            const avatar = this.contactFilter[index].avatar;
             this.arrImage = `img/avatar${avatar}.jpg`;
         },
 
