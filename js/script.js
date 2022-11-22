@@ -235,6 +235,21 @@ const app = new Vue({
         this.arrImage = `img/avatar${firstContact.avatar}.jpg`;
 
 		this.contactFilter = this.contacts;
+
+		document.addEventListener("click", function (event) {
+            const elDropdowns = document.querySelectorAll(".dropdown-menu");
+            const targetClasses = event.target.classList;
+            if (targetClasses.contains("dropdown-arrow") || targetClasses.contains("delete-message")) {
+                return;
+            }
+
+            elDropdowns.forEach(function (dropdown) {
+                if (dropdown.style.display === "flex") {
+                    dropdown.style.display = "none";
+                }
+            });
+        }, true);
+		
     },
    
     
